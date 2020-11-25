@@ -3,7 +3,7 @@ defmodule ZenEx.Model.OrganizationMembership do
   Provides functions for retreiving and manipulating Organization membership 
   """
 
-  alias ZenEx.HTTPClient
+  alias ZenEx.{HTTPClient, Query}
   alias ZenEx.Entity.{Organization, OrganizationMembership, User}
 
   @doc """

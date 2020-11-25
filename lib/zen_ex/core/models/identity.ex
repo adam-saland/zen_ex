@@ -3,7 +3,7 @@ defmodule ZenEx.Model.Identity do
   Provides functions for retreiving and manipulating User Identities
   """
 
-  alias ZenEx.HTTPClient
+  alias ZenEx.{HTTPClient, Query}
   alias ZenEx.Entity.{Identity, User}
 
   @doc """
