@@ -3,5 +3,12 @@ defmodule ZenEx.Entity.OrganizationMembership do
   Identity entity corresponding to Zendesk Organization Memberships
   """
 
-  defstruct [:id, :user_id, :organization_id, :default, :updated_at, :created_at]
+  defstruct [
+    :created_at,
+    :default,
+    :id,
+    :organization_id,
+    :updated_at,
+    :user_id
+  ]
 end

@@ -3,6 +3,20 @@ defmodule ZenEx.Entity.Organization do
   Identity entity corresponding to Zendesk Organization 
   """
 
-  defstruct [:id, :url, :external_id, :name, :updated_at, :created_at, :domain_names, :details, :notes, :group_id, 
-    :shared_tickets, :shared_comments, :tags, :organization_fields]
+  defstruct [
+    :created_at,
+    :details,
+    :domain_names,
+    :external_id,
+    :group_id,
+    :id,
+    :name,
+    :notes,
+    :organization_fields,
+    :shared_comments,
+    :shared_tickets,
+    :tags,
+    :updated_at,
+    :url
+  ]
 end
