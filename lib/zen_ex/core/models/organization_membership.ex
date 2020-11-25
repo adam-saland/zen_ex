@@ -34,15 +34,38 @@ defmodule ZenEx.Model.OrganizationMembership do
   Creates a new Organization Membership
 
   ## Examples
+  iex> ZenEx.Model.OrganizationMembership.create(%ZenEx.Entity.OrganizationMembership{})
+  %ZenEx.Entity.OrganizationMembership{}
 
-      iex> ZenEx.Model.OrganizationMembership.create(%ZenEx.Entity.Organization{}, %ZenEx.Entity.User{})
-      %ZenEx.Entity.OrganizationMembership{}
+  iex> ZenEx.Model.OrganizationMembership.create(%ZenEx.Entity.Organization{}, %ZenEx.Entity.User{})
+  %ZenEx.Entity.OrganizationMembership{}
   """
+
   def create(%Organization{id: organization_id}, %User{id: user_id}) do
+    create(%OrganizationMembership{organization_id: organization_id, user_id: user_id})
+  end
+
+  def create(%OrganizationMembership{organization_id: organization_id, user_id: user_id}) do
     member = %{organization_id: organization_id, user_id: user_id}
 
     HTTPClient.post("/api/v2/organization_memberships.json", %{organization_membership: member},
       organization: Organization
+    )
+  end
+
+  @doc """
+  Delete a User's membership in an Organization.
+
+  ## Examples
+
+      iex> ZenEx.Model.OrganizationMembership.destroy(1)
+      %ZenEx.Entity.OrganizationMembership{id: 1}
+
+  """
+  @spec destroy(integer) :: %User{} | {:error, String.t()}
+  def destroy(id) when is_integer(id) do
+    HTTPClient.delete("/api/v2/organization_memberships/#{id}.json",
+      organization_membership: OrganizationMembership
     )
   end
 end
