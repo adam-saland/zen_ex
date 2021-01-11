@@ -1,4 +1,4 @@
-use Mix.Config
+import Mix.Config
 
 config :zen_ex,
   subdomain: "testdomain",
